@@ -1,9 +1,3 @@
-# Copyright (c) Facebook, Inc. and its affiliates. All Rights Reserved
-"""
-Misc functions, including distributed helpers.
-
-Mostly copy-paste from torchvision references.
-"""
 import os
 import subprocess
 import time
@@ -19,12 +13,7 @@ from torch import Tensor
 import torch.nn as nn
 import torch.nn.functional as F
 from torch.autograd import Variable
-
-# needed due to empty tensor bug in pytorch and torchvision 0.5
 import torchvision
-# if float(torchvision.__version__[:3]) < 0.7:
-#     from torchvision.ops import _new_empty_tensor
-#     from torchvision.ops.misc import _output_size
 
 
 class SmoothedValue(object):
@@ -113,9 +102,6 @@ def all_gather(data):
     size_list = [int(size.item()) for size in size_list]
     max_size = max(size_list)
 
-    # receiving Tensor from all ranks
-    # we pad the tensor because torch all_gather does not support
-    # gathering tensors of different shapes
     tensor_list = []
     for _ in size_list:
         tensor_list.append(torch.empty((max_size,), dtype=torch.uint8, device="cuda"))
