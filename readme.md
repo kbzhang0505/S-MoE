@@ -8,3 +8,10 @@
 
 - [x] Training code and data loader
 
+# Citation
+If you find this project is useful for your research, please cite:
+@article{liu_S-MoE,
+  title={Spatial-Aware Mixture Experts for Crowd Counting},
+  author={Meng Liu, Kaibing Zhang, Hui Zhang, Pengfang Li, and Yalei Meng},
+  year={2025}
+}
